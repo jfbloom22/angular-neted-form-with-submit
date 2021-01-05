@@ -1,0 +1,48 @@
+<br>
+<small>
+Note: This form uses FormGroupDirective to bind form group(address) to the DOM element.
+</small>
+<div class="wrapper-box">
+	<div class="container">
+		<h2 class="text-center mb-5">Contact form</h2>
+		<div class="row">
+			<div class="col-md-6 offset-md-3">
+				<form [formGroup]="contactForm" (ngSubmit)="onSubmit(contactForm.value)">
+					<div class="form-group">
+						<label for="emailAddress">Email</label>
+						<span class="required-field">*</span>
+						<input type="email" class="form-control" name="emailAddress" placeholder="ex:example@domain.com"
+              formControlName="emailAddress" />
+          </div>
+						<div class="form-group">
+							<label for="fullName">Full Name</label>
+							<span class="required-field">*</span>
+							<input type="text" class="form-control" name="fullName" placeholder="Full Name"
+              formControlName="fullName" />
+          </div>
+							<div class="form-group">
+								<label for="fullName">Phone Number</label>
+								<span class="required-field">*</span>
+								<input type="text" class="form-control" name="phoneNumber" placeholder="Phone Number"
+              formControlName="phoneNumber" />
+          </div>
+								<div class="form-group">
+									<app-child-form> </app-child-form>
+								</div>
+								<div class="form-group">
+									<label for="comment">Comment</label>
+									<span class="required-field">*</span>
+									<textarea placeholder="Type your comments" class="form-control" formControlName="comment" name="comment">
+            </textarea>
+								</div>
+								<button type="submit" class="btn btn-success" >
+            Submit
+          </button>
+								<button style="margin-left: 5px;" type="button" class="btn btn-default" (click)="contactForm.reset()" [disabled]="!contactForm.valid">
+            Reset
+          </button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
